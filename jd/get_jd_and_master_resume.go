@@ -1,0 +1,96 @@
+package jd
+
+import "fmt"
+
+var JD string
+
+var MasterResume string = `{
+  "target_role": "Software Engineer",
+  "summary": "Computer Science student with project-based experience in backend development. Proficient in building *RESTful APIs* using *Node.js* and managing databases with *PostgreSQL*. Skilled in core programming languages including *Java*, *Python*, and *C*. Possess practical experience in game development, creating prototypes with the *Godot Engine*.",
+  "skills": [
+    {
+      "category": "Languages",
+      "items": "Java, Node.js, Go, C, Python, Typst"
+    },
+    {
+      "category": "Databases",
+      "items": "PostgreSQL, MongoDB"
+    },
+    {
+      "category": "Developer Tools",
+      "items": "Git & GitHub, n8n, Postman, PowerBI, Godot Engine"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Tiered Access Content API",
+      "repo_link": "https://github.com/dharunm73/Subscription",
+      "points": [
+        "Managed content for *2 user tiers* across *15+ endpoints* by building a scalable API with *Node.js* and *Express.js*.",
+        "Enforced *zero unauthorized access* by implementing *Role-Based Access Control (RBAC)* secured via *JWT authentication*.",
+        "Optimized query performance by modeling a normalized *5-table PostgreSQL* schema to handle complex user subscriptions."
+      ]
+    },
+    {
+      "title": "Pantry Management API",
+      "repo_link": null,
+      "points": [
+        "Reduced food waste by *20%* by engineering a *Node.js* backend to track real-time inventory expiration.",
+        "Managed user data via *10+ endpoints* by constructing scalable *CRUD* operations.",
+        "Automated user alerts *3 days* before expiry by implementing a scheduled query system in *PostgreSQL*.",
+        "Generated suggestions from *1000+ recipes* by building a logic engine to cross-reference available ingredients."
+      ]
+    },
+    {
+      "title": "Resume CI/CD Pipeline",
+      "repo_link": null,
+      "points": [
+        "Reduced resume customization time by *98% (30 mins to 30 secs)* by engineering an automated pipeline using *n8n* and the *Gemini API*.",
+        "Achieved *zero-cost operation* for document generation by integrating *Typst* for programmatic PDF rendering, eliminating reliance on paid SaaS tools.",
+        "Optimized content relevance for ATS systems by implementing advanced *prompt engineering* techniques to parse and rewrite JSON data against live job descriptions."
+      ]
+    },
+    {
+      "title": "2D Platformer Game",
+      "repo_link": null,
+      "points": [ 
+        "Engineered a playable *2D platformer* prototype by implementing physics and collision mechanics using *Godot Engine* and *GDScript*.",
+        "Structured modular logic for characters and enemies by applying *Object-Oriented Programming (OOP)* principles.",
+        "Constructed *multiple levels* with complex environments by utilizing *Godot's tilemap system* for efficient level design."
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "First Prize, TechTrivia",
+      "date": "Apr 2025",
+      "description": "Won 1st place in a college level technical quiz covering *Data Structures and Algorithms*."
+    },
+    {
+      "title": "First Prize, DashWiz (PowerBI)",
+      "date": "Apr 2025",
+      "description": "Created a dashboard optimizing logistics tracking, selected best among 50 teams."
+    },
+    {
+      "title": "First Prize, N8nate",
+      "date": "Nov 2025",
+      "description": "Architected an n8n workflow that automated certificate generation and emailing."
+    }
+  ],
+  "leadership": [
+    {
+      "role": "Content Team Member",
+      "org": "ACE - Computer Science Department Club",
+      "points": [
+        "Authored detailed post-event reports to document key outcomes and metrics for departmental review.",
+        "Collaborated with the design team to create and distribute promotional materials and event invitations, contributing to event visibility and attendance.",
+        "Actively participated in the event management lifecycle, from initial planning and logistics coordination to on-site execution and support."
+      ]
+    }
+  ]
+}`
+
+func GetJD() {
+	fmt.Println("Enter the JD")
+	fmt.Scanln(&JD)
+}
