@@ -1,11 +1,13 @@
 package main
 
 import (
+	"gon8n/ai"
 	"gon8n/jd"
 )
 
 func main() {
-	jd.GetJD()
+	//jd.GetJD()
 	jd.MasterResume()
-	jd.TempResume()
+	ai.Gemini()
+	ai.TempResume()
 }

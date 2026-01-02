@@ -25,10 +25,10 @@ func MasterResume() {
 	Master = string(data)
 }
 
-func TempResume() {
-	Tempdata := []byte(Master)
-	err := os.WriteFile("C:/Users/HP/Desktop/Dharun/gon8n/temp_resume.json", Tempdata, 0644)
+/*func TempResume() {
+	//Tempdata := []byte(Master)
+	err := os.WriteFile("C:/Users/HP/Desktop/Dharun/gon8n/temp_resume.json", []byte(ai.Response) , 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
-}
+}*/
