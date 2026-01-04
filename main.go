@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	//jd.GetJD()
+	jd.GetJD()
 	jd.MasterResume()
-	ai.Gemini()
-	ai.TempResume()
+	ai.Gemini(jd.JobDesc, ai.Roleplay(), jd.MasterResume())
+	ai.UpdateResume()
+	ai.TypstCompilation()
 }
