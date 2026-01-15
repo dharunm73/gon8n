@@ -13,7 +13,7 @@ var Response string
 
 func Roleplay() string {
 
-	data, err := os.ReadFile("C:/Users/HP/Desktop/Dharun/gon8n/Instruction.txt")
+	data, err := os.ReadFile("Instruction.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,13 +25,16 @@ func Roleplay() string {
 func Gemini(JobDesc string, Instruction string, Master string) {
 
 	context := context.Background()
-	client, err := genai.NewClient(context, nil)
+	client, err := genai.NewClient(context, &genai.ClientConfig{
+		APIKey:  os.Getenv("GEMINI_API_KEY"),
+		Backend: genai.BackendGeminiAPI,
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	config := &genai.GenerateContentConfig{
-		SystemInstruction: genai.NewContentFromText(Instruction+"\nBelow is the Job Description\n"+Master, genai.RoleUser),
+		SystemInstruction: genai.NewContentFromText(Instruction+"\n"+Master+"\nBelow is the Job Description\n", genai.RoleUser),
 	}
 
 	result, err := client.Models.GenerateContent(
@@ -49,7 +52,7 @@ func Gemini(JobDesc string, Instruction string, Master string) {
 }
 
 func UpdateResume() {
-	err := os.WriteFile("C:/Users/HP/Desktop/Dharun/gon8n/updated_resume.json", []byte(Response), 0644)
+	err := os.WriteFile("updated_resume.json", []byte(Response), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
