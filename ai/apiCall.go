@@ -2,6 +2,7 @@ package ai
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -13,6 +14,8 @@ var Response string
 
 func Roleplay() string {
 
+	fmt.Println("Reading Instructions")
+
 	data, err := os.ReadFile("Instruction.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -23,6 +26,8 @@ func Roleplay() string {
 }
 
 func Gemini(JobDesc string, Instruction string, Master string) {
+
+	fmt.Println("API call is running")
 
 	context := context.Background()
 	client, err := genai.NewClient(context, &genai.ClientConfig{
@@ -52,6 +57,8 @@ func Gemini(JobDesc string, Instruction string, Master string) {
 }
 
 func UpdateResume() {
+
+	fmt.Println("Resume being loaded onto updated resume json")
 	err := os.WriteFile("updated_resume.json", []byte(Response), 0644)
 	if err != nil {
 		log.Fatal(err)
@@ -59,6 +66,8 @@ func UpdateResume() {
 }
 
 func TypstCompilation() {
+
+	fmt.Println("Resume being compiled")
 	cmd := exec.Command("typst", "compile", "template.typ", "--font-path", "./")
 	_, err := cmd.Output()
 	if err != nil {
