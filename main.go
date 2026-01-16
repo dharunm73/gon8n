@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gon8n/ai"
 	"gon8n/jd"
 )
@@ -11,4 +12,5 @@ func main() {
 	ai.Gemini(jd.JobDesc, ai.Roleplay(), jd.MasterResume())
 	ai.UpdateResume()
 	ai.TypstCompilation()
+	fmt.Println("Everything done")
 }
